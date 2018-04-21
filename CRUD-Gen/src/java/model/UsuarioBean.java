@@ -1,5 +1,4 @@
 package model;
-import java.io.Serializable;
 import java.util.*;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -7,11 +6,9 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class UsuarioBean implements Serializable{
-    private static final long serialVersionUID = 356240640918386194L;
+public class UsuarioBean{
     private Usuario usuarioLogado = new Usuario();
     
-
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
@@ -26,9 +23,13 @@ public class UsuarioBean implements Serializable{
         }
         return "invalido";
     }
+    
+    public void cadastrar(){
+        //faz o cadastro
+    }
+    
     public void limpar() {
        this.usuarioLogado = new Usuario();
     }
-    
 
 }

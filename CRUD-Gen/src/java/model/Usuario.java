@@ -10,17 +10,21 @@ package model;
  * @author renan
  */
 public class Usuario {
+    private int codigo;
     private String nome;
     private String login;
     private String senha;
     
     public Usuario(){}
-    public Usuario(String nome, String login, String senha){
+    public Usuario(int codigo, String nome, String login, String senha){
         this.nome = nome;
         this.login = login;
         this.senha = senha;
     }
     
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -31,6 +35,9 @@ public class Usuario {
         this.senha = senha;
     }
     
+    public int getCodigo(){
+        return this.codigo;
+    }
     public String getNome(){
         return this.nome;
     }
@@ -46,6 +53,9 @@ public class Usuario {
         
     }
     public void excluir(){
+        
+    }
+    public boolean validar(){
         
     }
     public void vincularSistema(){
