@@ -5,26 +5,25 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author renan
  */
 public class Usuario {
-    private int codigo;
     private String nome;
     private String login;
     private String senha;
     
     public Usuario(){}
-    public Usuario(int codigo, String nome, String login, String senha){
+    
+    public Usuario(String nome, String login, String senha){
         this.nome = nome;
         this.login = login;
         this.senha = senha;
     }
     
-    public void setCodigo(int codigo){
-        this.codigo = codigo;
-    }
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -35,9 +34,6 @@ public class Usuario {
         this.senha = senha;
     }
     
-    public int getCodigo(){
-        return this.codigo;
-    }
     public String getNome(){
         return this.nome;
     }
@@ -48,17 +44,19 @@ public class Usuario {
         return this.senha;
     }
 
-    
-    public void cadastrar(){
-        
+    public List<Usuario> listar(){
+        return UsuarioDAO.getLista();
     }
-    public void excluir(){
-        
+    public boolean cadastrar(){
+        return UsuarioDAO.cadastrar(this);
+    }
+    public boolean excluir(){
+        return UsuarioDAO.excluir(this);
     }
     public boolean validar(){
-        
+        return UsuarioDAO.validar(this);
     }
-    public void vincularSistema(){
-        
+    public boolean atualizar(){
+        return UsuarioDAO.atualizar(this);
     }
 }

@@ -1,6 +1,5 @@
-package dao;
+package model;
 
-import model.Usuario;
 import java.sql.*;
 import java.util.*;
 
@@ -13,7 +12,7 @@ public class UsuarioDAO {
             System.out.println("Conexão aberta!");
             stmt.setString(1, user.getLogin());
             stmt.setString(2, user.getSenha());
-            System.out.println("login + senha"+ user.getLogin() + " " +user.getSenha());
+            System.out.println("login + senha" + user.getLogin() + " " +user.getSenha());
             
             System.out.println("Dados Recuperados!");
             ResultSet rs = stmt.executeQuery();
@@ -47,7 +46,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = 
                 connection.prepareStatement(UsuarioSQLs.EXCLUIR.getSql());){
             stmt.setString(1, user.getNome());
-            stmt.setString(2, user.getIdentificador());
+            stmt.setString(2, user.getLogin());
             if(stmt.executeUpdate() >=1) return true;
         }catch(SQLException e){
                 System.out.println("exceção com recursos - remover");
@@ -60,7 +59,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = 
                 connection.prepareStatement(UsuarioSQLs.INSERIR.getSql());){
             stmt.setString(1, user.getNome());
-            stmt.setString(2, user.getIdentificador());
+            stmt.setString(2, user.getLogin());
             stmt.setString(3, user.getSenha());
             System.out.println("Dados Gravados!");
             return stmt.execute();
@@ -80,9 +79,9 @@ public class UsuarioDAO {
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 String nome = rs.getString("nome");
-                String identificador = rs.getString("identificador");
+                String login = rs.getString("login");
                 String senha = rs.getString("senha");
-                lista.add(new Usuario(nome, identificador, senha));
+                lista.add(new Usuario(nome, login, senha));
             }
             return lista;
         }catch(SQLException e){ System.out.println("Exceção SQL");

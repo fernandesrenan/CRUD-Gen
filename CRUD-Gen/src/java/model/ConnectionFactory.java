@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import java.sql.*;
 
@@ -6,7 +6,7 @@ public class ConnectionFactory {
     public Connection getConnection() {
         try {
            Class.forName("com.mysql.jdbc.Driver");
-           String urlBD="jdbc:mysql://localhost:3306/bd";
+           String urlBD="jdbc:mysql://localhost:3306/crud-gen";
            return DriverManager.getConnection(urlBD, "root", "");
         } catch (SQLException e) {
             System.out.println("Exceção SQL - ConnectionFactory");
