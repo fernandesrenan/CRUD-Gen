@@ -1,32 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>CRUD-Gen Login</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     </h:head>
+    
     <h:body>
-        <h:outputStylesheet library="css" name="estilo.css"/>
-        <h:form>
-            <h:panelGrid  columns="1">
- 
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="Usuário: "/>
-                    <h:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" label="login"></h:inputText>
-                </h:panelGrid>
+        <h:outputStylesheet name="estilo.css" />
+        <p:layout fullPage="true">
+            <h:form>
                 
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="Senha: "/>
-                    <h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}" required="true" label="senha"></h:inputSecret>
-                </h:panelGrid>
+                <p:panel header="Login">
+                    <h:panelGrid columns="1">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Usuário: "/>
+                            <p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" label="login"></p:inputText>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Senha: "/>
+                            <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" label="senha"></p:password>
+                        </h:panelGrid>
+
+                        <p:commandButton value="Entrar" action="#{usuarioBean.validar()}" styleClass="ui-priority-primary" />
+                        
+                    </h:panelGrid>
+                </p:panel>
                 
-                <h:panelGrid columns="3">
-                    <h:commandButton value="Login" action="#{usuarioBean.validar()}"/>
-                </h:panelGrid>
                 
-            </h:panelGrid>
-        </h:form>
+            </h:form>
+
+        </p:layout>
+
     </h:body>
 </html>
 
