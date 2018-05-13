@@ -38,6 +38,7 @@ public class UsuarioBean{
         return "listar";
     }
     public String validar() {
+        
         if(usuario.validar()){
            this.usuarioLogado = usuario;
            this.usuario = new Usuario();
@@ -45,7 +46,6 @@ public class UsuarioBean{
         }else{
             return "invalido";
         }
-        
     }
     
     public String cadastrar(){

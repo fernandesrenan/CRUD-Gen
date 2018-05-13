@@ -1,27 +1,49 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Menu</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-    </h:head>
-    <h:body>
-        <h:outputStylesheet library="css" name="estilo.css"/>
-        <h:form>
-           <h:panelGrid columns="1">
-               <h:outputLabel style="font-size: 20px;" value="Olá #{usuarioBean.usuarioLogado.login}, seja bem-vindo ao CRUDGEN 1.0!"/>
-           </h:panelGrid>
-           <h:panelGrid columns="1">
-               <h:link value="Cadastrar usuário" outcome="cadastrar"/>
-           </h:panelGrid>
-           <h:panelGrid columns="1">
-               <h:link value="Listar usuários" outcome="listar"/>
-           </h:panelGrid>
-           <h:panelGrid columns="1">
-               <h:link value="Sair" outcome="login"/>
-           </h:panelGrid>
-        </h:form>
-    </h:body>
-</html>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>CRUD Gen</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="50" resizable="true">
+                    CRUD Generator 1.0
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="220">
+                    <h:form>
+                        <p:menu>
+                            <p:submenu label="Menu">
+                                <p:menuitem value="Listar Usuários" actionListener="#{menuController.doViewListarUsuarios()}" update=":contentContainer"/>
+                                <p:menuitem value="Sair" url="" />
+                            </p:submenu>
+                            <p:submenu label="Seus sistemas">
+                                <p:menuitem value="Novo sistema" url="listar.xhtml" />
+                            </p:submenu>
+                        </p:menu>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" >
+                    <h:form id="contentContainer">
+                        <ui:include src="#{menuController.page}" />
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
