@@ -24,8 +24,11 @@
                             <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" label="senha"></p:password>
                         </h:panelGrid>
 
-                        <p:commandButton value="Entrar" action="#{usuarioBean.validar()}" styleClass="ui-priority-primary" />
-                        
+                        <h:panelGrid columns="3">
+                            <p:link outcome="cadastrar" value="Cadastre-se"></p:link>
+                            <p:spacer width="50" height="10" />
+                            <p:commandButton value="Entrar" action="#{usuarioBean.validar()}" styleClass="ui-priority-primary" />
+                        </h:panelGrid>                    
                     </h:panelGrid>
                 </p:panel>
                 

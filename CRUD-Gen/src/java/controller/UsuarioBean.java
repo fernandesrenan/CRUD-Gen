@@ -42,13 +42,15 @@ public class UsuarioBean{
            this.usuarioLogado = usuario;
            this.usuario = new Usuario();
            return "menu";
+        }else{
+            return "invalido";
         }
-        return "invalido";
+        
     }
     
     public String cadastrar(){
         usuario.cadastrar();
-        return "listar";
+        return "menu";
     }
     
     public String excluir(Usuario usuario){

@@ -1,12 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Invalido</title>
     </h:head>
-    <h:body style="background-image: url('https://lh4.googleusercontent.com/vX1vbjOKGQgEuhtM6pnwe-GtdLjE53Ikyp6-J-GzeqRtdDuQLNXo08WW3EQs1o4tiy-XMngy_66HdFM-JU5v=w1920-h909'); background-attachment: fixed; background-repeat: no-repeat; background-position: center;">
-       
+    <h:body>
+        <h:outputStylesheet name="estilo.css" />
+        <p:layout fullPage="true">
+            <p:graphicImage name="images/usuario_senha_not_found.png" />
+            <p:link outcome="login" value="Voltar"></p:link>
+        </p:layout>
     </h:body>
 </html>
 

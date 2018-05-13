@@ -2,50 +2,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Cadastro Usuário</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:outputStylesheet library="css" name="estilo.css"/>
-            <h:panelGrid class="grade" columns="1">
-                <h:outputLabel value="Cadastrar Usuário"/>
+        <h:outputStylesheet name="estilo.css"/>
+        <p:layout fullPage="true">
+            <h:form>
 
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="Nome: "/>
-                    <h:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" label="nome"> 
-                        <f:validateLength minimum="5" maximum="150" />
-                    </h:inputText>
-                    <h:message for="nome" style="color:red" />
-                </h:panelGrid>
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="Login: "/>
-                    <h:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" label="login"> 
-                        <f:validateLength minimum="5" maximum="20" />
-                    </h:inputText>
-                    <h:message for="login" style="color:red" />
-                </h:panelGrid>   
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="Senha: "/>
-                    <h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}" required="true" label="senha"> 
-                        <f:validateLength minimum="5" maximum="11" />
-                    </h:inputSecret>
-                    <h:message for="senha" style="color:red" />
-                </h:panelGrid>   
+                <p:panel header="Cadastrar usuário">
+                    <h:panelGrid>
+                        <h:outputLabel value="Nome: "/>
+                        <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true" label="nome"> 
+                            <f:validateLength minimum="5" maximum="150" />
+                        </p:inputText>
+                        <h:message for="nome" style="color:red" />
+                    </h:panelGrid>
 
-                <h:panelGrid columns="2">
-                    <h:commandButton value="Ok" action="#{usuarioBean.cadastrar()}"/>
-                </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputLabel value="Login: "/>
+                        <p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" label="login"> 
+                            <f:validateLength minimum="5" maximum="20" />
+                        </p:inputText>
+                        <h:message for="login" style="color:red" />
+                    </h:panelGrid>
 
-            </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputLabel value="Senha: "/>
+                        <p:password id="senha" value="#{usuarioBean.usuario.senha}" required="true" match="senha2"></p:password>
+                    </h:panelGrid>
 
-            <h:panelGrid columns="1">
-                <h:commandButton value="Menu" action="menu.xhtml"/>
-            </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputLabel value="Confirme a senha: "/>
+                        <p:password id="senha2" value="#{usuarioBean.usuario.senha}" required="true"></p:password>
+                    </h:panelGrid>
 
-        </h:form>
-        
+                    <h:panelGrid columns="2">
+                        <p:commandButton value="Menu" action="menu.xhtml" styleClass="ui-priority-primary" />
+                        <p:commandButton value="Ok" action="#{usuarioBean.cadastrar()}" styleClass="ui-priority-primary" />
+                    </h:panelGrid>
+                </p:panel>
+                
+            </h:form>
+        </p:layout>
     </h:body>
 </html>
 
