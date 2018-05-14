@@ -24,12 +24,12 @@
                 <p:layoutUnit position="west" size="220">
                     <h:form>
                         <p:menu>
-                            <p:submenu label="Menu">
-                                <p:menuitem value="Listar Usuários" actionListener="#{menuController.doViewListarUsuarios()}" update=":contentContainer"/>
-                                <p:menuitem value="Sair" url="" />
-                            </p:submenu>
                             <p:submenu label="Seus sistemas">
-                                <p:menuitem value="Novo sistema" url="listar.xhtml" />
+                                <p:menuitem value="Novo sistema" url="#" />
+                            </p:submenu>
+                            <p:submenu label="Conta">
+                                <p:menuitem value="Listar Usuários" actionListener="#{menuController.doViewListarUsuarios()}" update=":contentContainer"/>
+                                <p:menuitem value="Sair" url="login.xhtml" />
                             </p:submenu>
                         </p:menu>
                     </h:form>

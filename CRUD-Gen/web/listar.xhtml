@@ -8,25 +8,22 @@
     <h:form>
         <h:outputStylesheet library="css" name="estilo.css"/>
         <h:panelGrid columns="1">
-            <h:dataTable value="#{usuarioBean.lista}" var="user"  class="listar">
-                <h:column>
+            <p:dataTable value="#{usuarioBean.lista}" var="user"  class="listar">
+                <p:column>
                     <f:facet name="header">Nome</f:facet>
                         #{user.nome}
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">Login</f:facet>
                         #{user.login}
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandLink value="Excluir" action="#{usuarioBean.excluir(user)}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:commandButton value="Editar" action="#{usuarioBean.editar(user)}"/>
-                </h:column>
-            </h:dataTable>
-        </h:panelGrid>
-        <h:panelGrid columns="1">
-            <h:commandButton value="Menu" action="menu.xhtml"/>
+                </p:column>
+            </p:dataTable>
         </h:panelGrid>
     </h:form>
 </ui:composition>

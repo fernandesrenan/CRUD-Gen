@@ -3,6 +3,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.Usuario;
+import controller.MenuController;
 
 @ManagedBean
 @SessionScoped
@@ -38,7 +39,6 @@ public class UsuarioBean{
         return "listar";
     }
     public String validar() {
-        
         if(usuario.validar()){
            this.usuarioLogado = usuario;
            this.usuario = new Usuario();
