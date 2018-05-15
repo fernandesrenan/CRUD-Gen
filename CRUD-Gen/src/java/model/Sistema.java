@@ -12,6 +12,11 @@ public class Sistema {
     
     public Sistema(){}
     
+    public Sistema(int codigo, String nome){
+        this.setCodigo(codigo);
+        this.setNome(nome);
+    }
+    
     public void setCodigo(int codigo){
         this.codigo = codigo;
     }
@@ -34,9 +39,6 @@ public class Sistema {
     }
     public boolean excluir(){
         return SistemaDAO.excluir(this);
-    }
-    public boolean validar(){
-        return SistemaDAO.validar(this);
     }
     public boolean atualizar(){
         return SistemaDAO.atualizar(this);
