@@ -25,7 +25,7 @@
                     <h:form>
                         <p:menu>
                             <p:submenu label="Seus sistemas">
-                                <p:menuitem value="Novo sistema" url="#" />
+                                <p:menuitem value="Novo sistema" actionListener="#{menuController.doViewCadastrarSistema()}" update=":contentContainer" />
                             </p:submenu>
                             <p:submenu label="Conta">
                                 <p:menuitem value="Listar Usuários" actionListener="#{menuController.doViewListarUsuarios()}" update=":contentContainer"/>

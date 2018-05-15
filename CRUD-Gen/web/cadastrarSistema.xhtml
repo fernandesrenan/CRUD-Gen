@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:form>
+        <h:outputStylesheet library="css" name="estilo.css"/>
+        <p:layout fullPage="true">
+            <h:form>
+                <p:panel header="Novo sistema">
+                    <h:panelGrid>
+                        <h:outputLabel value="Nome: "/>
+                        <p:inputText id="nome" value="#{sistemaBean.sistema.nome}" required="true" label="nome"> 
+                            <f:validateLength minimum="5" maximum="150" />
+                        </p:inputText>
+                        <h:message for="nome" style="color:red" />
+                    </h:panelGrid>
+
+                    <h:panelGrid>
+                        <p:commandButton value="Salvar" action="#{sistemaBean.cadastrar()}" styleClass="ui-priority-primary" />
+                    </h:panelGrid>
+                </p:panel>
+                
+            </h:form>
+        </p:layout>
+    </h:form>
+</ui:composition>

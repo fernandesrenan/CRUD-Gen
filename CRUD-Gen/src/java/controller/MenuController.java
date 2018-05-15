@@ -25,4 +25,8 @@ public class MenuController {
     public void doViewListarUsuarios(){
         this.page = "listar.xhtml";
     }
+    
+    public void doViewCadastrarSistema(){
+        this.page = "cadastrarSistema.xhtml";
+    }
 }

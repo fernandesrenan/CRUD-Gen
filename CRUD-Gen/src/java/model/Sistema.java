@@ -31,7 +31,7 @@ public class Sistema {
         return this.nome;
     }
     
-    public List<Usuario> listar(){
+    public List<Sistema> listar(){
         return SistemaDAO.getLista();
     }
     public boolean cadastrar(){
