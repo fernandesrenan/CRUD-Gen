@@ -18,6 +18,7 @@ public class SistemaDAO {
             System.out.println("SQL = " + SistemaSQLs.ATUALIZAR.getSql());
             System.out.println("Conexão aberta!");
             stmt.setString(1, sistema.getNome());
+            stmt.setString(2, String.valueOf(sistema.getCodigo()));
             stmt.execute();
         } catch (SQLException e) {
             System.out.println("exceção com recursos - remover");
@@ -28,7 +29,7 @@ public class SistemaDAO {
     public static boolean excluir(Sistema sistema) {
         try (Connection connection = new ConnectionFactory().getConnection();
                 PreparedStatement stmt = connection.prepareStatement(SistemaSQLs.EXCLUIR.getSql());) {
-            stmt.setString(1, sistema.getNome());
+            stmt.setString(1, String.valueOf(sistema.getCodigo()));
             if (stmt.executeUpdate() >= 1) {
                 return true;
             }
